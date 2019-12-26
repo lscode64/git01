@@ -1,35 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Document</title>
-   <style>
-      h1{
-         width: 200px;
-         height: 200px;
-         color: blue;
-         left: 0;
-         top: 0;
-         right: 0;
-         bottom: 0;
-         margin: auto;
-         font-size: 60px;
-      }
-      p{
-         text-align: center;
-         color: red;
-         font-size: 40px;
-      }
-   </style>
+    <meta charset="UTF-8">
+    <title>练习-正方体</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .big{
+            width: 400px;
+            height: 400px;
+            margin: 150px auto 0;
+            position: relative;
+            /*transform: rotateX(20deg) rotateY(60deg);*/
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+            transform-origin: center center 200px;
+        }
+        .big li:nth-child(-n+6){
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            backface-visibility:visible ;
+        }
+        .big li:nth-child(1){
+            left: 0;
+            top: 0;
+            background-color: #cc0000;
+            background: url("img2/xin (1).jpg");
+
+            /*opacity: .5;*/
+            transform: rotateX(180deg);
+            transition: all 1s linear;
+        }
+        .big:hover li:nth-child(1){
+            transform: translateZ(-100px) rotateX(180deg)  ;
+        }
+
+        .big li:nth-child(2) {
+            left: 0;
+            top: 0;
+            background-color: #54554b;
+            background: url("img2/xin (2).jpg");
+            /*opacity: .5;*/
+            transform: translateZ(400px);
+            transition: all 1s linear;
+        }
+        .big:hover li:nth-child(2){
+            transform: translateZ(500px)  ;
+        }
+        .big li:nth-child(3) {
+            left: -400px;
+            top: 0;
+            background-color: #55292a;
+            background: url("img2/xin (3).jpg");
+            /*opacity: .5;*/
+            transform-origin: right center;
+            transform: rotateY(90deg);
+            transition: all 1s linear;
+        }
+        .big:hover li:nth-child(3){
+            transform: translateX(-100px)  rotateY(90deg);
+        }
+        .big li:nth-child(4) {
+            left: 400px;
+            top: 0;
+            background-color: #5270ff;
+            /*opacity: .5;*/
+            transform-origin: left center;
+            transform: rotateY(-90deg);
+            transition: all 1s linear;
+            background: url("img2/xin (4).jpg");
+        }
+        .big:hover li:nth-child(4){
+            transform: translateX(100px)  rotateY(-90deg);
+        }
+        .big li:nth-child(5) {
+            left: 0;
+            top: -400px;
+            background-color: #c3a77f;
+            background: url("img2/xin (5).jpg");
+            /*opacity: .5;*/
+            transform-origin: center bottom;
+            transform: rotateX(-90deg);
+            transition: all 1s linear;
+        }
+        .big:hover li:nth-child(5){
+            transform: translateY(-100px)  rotateX(-90deg);
+        }
+        .big li:nth-child(6) {
+            left: 0;
+            top: 400px;
+            background-color: #872dc3;
+            background: url("img2/xin (6).jpg");
+            /*opacity: .5;*/
+            transform-origin: center top;
+            transform: rotateX(90deg);
+            transition: all 1s linear;
+        }
+        .big:hover li:nth-child(6){
+            transform: translateY(100px)  rotateX(90deg);
+        }
+        .big li:nth-last-child(-n+6){
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .big li:nth-child(7) {
+            left: 150px;
+            top: 150px;
+            background-color: #c34227;
+            background: url("img2/xin (7).jpg");
+            /*opacity: .5;*/
+            transform:translateZ(150px) rotateX(180deg);
+        }
+        .big li:nth-child(8) {
+            left: 150px;
+            top: 150px;
+            background-color: #52c371;
+            background: url("img2/xin (8).jpg");
+            /*opacity: .5;*/
+            transform: translateZ(250px);
+        }
+        .big li:nth-child(9) {
+            left: 50px;
+            top: 150px;
+            background-color: #c3b063;
+            background: url("img2/xin (9).jpg");
+            /*opacity: .5;*/
+            transform-origin: right center;
+            transform:translateZ(150px) rotateY(90deg);
+        }
+        .big li:nth-child(10) {
+            left: 250px;
+            top: 150px;
+            background-color: #5693c3;
+            background: url("img2/xin (10).jpg");
+            /*opacity: .5;*/
+            transform-origin: left center;
+            transform: translateZ(150px) rotateY(-90deg);
+        }
+        .big li:nth-child(11) {
+            left: 150px;
+            top: 50px;
+            background-color: #44c320;
+            background: url("img2/xin (11).jpg");
+            /*opacity: .5;*/
+            transform-origin:  center bottom;
+            transform: translateZ(150px) rotateX(-90deg);
+        }
+        .big li:nth-child(12) {
+            left: 150px;
+            top: 250px;
+            background-color: #c33ca7;
+            background: url("img2/xin (12).jpg");
+            /*opacity: .5;*/
+            transform-origin:  center top;
+            transform: translateZ(150px) rotateX(90deg);
+        }
+
+        @keyframes rotate {
+            from{
+                transform: rotate3d(1,1,1,0deg);
+                /*transform: rotateZ(0deg);*/
+            }
+            to{
+                transform: rotate3d(1,1,1,360deg);
+                /*transform: rotateZ(360deg);*/
+            }
+        }
+    </style>
 </head>
 <body>
-   <div>
-      <h1>仙之巅</h1>
-      <p>李科红</p>
-      <hr>
-   </div>
-   
+    <div class="outer">
+        <ul class="big">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 </body>
 </html>
